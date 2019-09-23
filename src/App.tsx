@@ -1,10 +1,8 @@
 import React from 'react';
-import TestType, { Input } from '@thanhcs/input/lib';
 import logo from './logo.svg';
 import './App.css';
 
 const App: React.FunctionComponent = () => {
-    const test: TestType;
     return (
         <div className="App">
             <header className="App-header">
