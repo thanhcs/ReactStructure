@@ -10,7 +10,7 @@ module.exports = {
         'plugin:import/errors',
         'plugin:import/warnings',
         'plugin:import/typescript',
-        'plugin:jest/recommended'
+        'plugin:jest/recommended',
     ],
     parserOptions: {
         ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
@@ -21,20 +21,30 @@ module.exports = {
     },
     rules: {
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": "error",
-        "no-useless-constructor": "off",
-        "@typescript-eslint/no-useless-constructor": "error",
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': 'error',
+        'no-useless-constructor': 'off',
+        '@typescript-eslint/no-useless-constructor': 'error',
 
         '@typescript-eslint/interface-name-prefix': 1,
         '@typescript-eslint/no-explicit-any': 0,
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
-        // '@typescript-eslint/member-delimiter-style': {
-        //     delimiter: 'none',
-        //     requireLast: true,
-        // },
+        '@typescript-eslint/member-delimiter-style': [
+            'error',
+            {
+                // Prevents us from using any delimiter for interface properties.
+                multiline: {
+                    delimiter: 'none',
+                    requireLast: false,
+                },
+                singleline: {
+                    delimiter: 'comma',
+                    requireLast: false,
+                },
+            },
+        ],
     },
     settings: {
         react: {
@@ -43,6 +53,6 @@ module.exports = {
     },
     env: {
         browser: true,
-        node: true
-    }
+        node: true,
+    },
 };
